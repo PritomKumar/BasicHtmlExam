@@ -1,0 +1,9 @@
+body {
+    background-color: white;
+}
+ rect {
+    fill:white;
+    stroke-width:5;
+    fill-opacity:0.0;
+    stroke-opacity:1
+ }
