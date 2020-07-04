@@ -156,7 +156,7 @@ function timeFormatConverter(time)
 	let formatDecider = time.split(' ');
 	let formattedTime = "";
 	if(formatDecider.length == 1){
-		let timeArray = time.split(":");
+		let timeArray = formatDecider[0].split(":");
 	    let twelveHourAmPm = 'AM';
 
 	    if (timeArray[0] >= 12) {
@@ -174,7 +174,7 @@ function timeFormatConverter(time)
 	    formattedTime = timeArray[0] + ':' + timeArray[1] + ':' + timeArray[2] + ' ' + twelveHourAmPm;
 	}
 	else if(formatDecider.length == 2){
-		let timeArray = time.split(":");
+		let timeArray = formatDecider[0].split(":");
 
 		if(formatDecider[1].toUpperCase() === "PM" ){
 			timeArray[0] = parseInt(timeArray[0]) + 12;
@@ -200,3 +200,67 @@ console.log(time);
 
 time = timeFormatConverter("12:00:00 PM");
 console.log(time);  
+
+
+console.log("\n");
+console.log("\n");
+console.log("Answer to the Ques. No 7 ----");
+
+console.log("Seventh answer ----");
+
+const moneyFormatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 2
+})
+
+let fullMoney = moneyFormatter.format(63678366876545413).replace("$","");
+let moneyWithDecimalParts = fullMoney.split('.');
+let money = moneyWithDecimalParts[0];
+
+console.log(money);
+console.log("Number in words ----\n");
+let num = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split(" ");
+let tens = "twenty thirty forty fifty sixty seventy eighty ninety".split(" ");
+let scales = ['','thousand', 'million', 'billion', 'trillion', 'quadrillion', 'quintillion', 'sextillion', 'septillion', 'octillion', 'nonillion', 'decillion', 'undecillion', 'duodecillion', 'tredecillion', 'quatttuor-decillion', 'quindecillion', 'sexdecillion', 'septen-decillion', 'octodecillion', 'novemdecillion', 'vigintillion', 'centillion' ];
+let moneyParts = money.split(',');
+
+let moneyInWords = "";
+
+for(let i=moneyParts.length-1 ; i>=0 ; i--){
+	moneyInWords += number2words(moneyParts[moneyParts.length-1-i]);
+	moneyInWords += " " + scales[i] +" ";
+}
+
+console.log(moneyInWords);
+
+function number2words(numberString){
+
+	let n = parseInt(numberString);
+
+    if(numberString.length == 3 && numberString[0]!='0'){
+    	let hundred =  "";
+    	hundred = num[parseInt(numberString[0])] + " hundred ";
+    	let tensCheck = 0;
+    	tensCheck = parseInt(numberString[1] + numberString[2]);
+    	if(tensCheck<20){
+    		return hundred + num[tensCheck] ;
+    	}
+    	else{
+    		return hundred + tens[parseInt(numberString[1])-2] + " " + num[parseInt(numberString[2])];
+    	}
+    }
+    if(numberString.length == 2){
+    	let tensCheck = 0;
+    	tensCheck = parseInt(numberString[0] + numberString[1]);
+    	if(tensCheck<20){
+    		return num[tensCheck] ;
+    	}
+    	else{
+    		return tens[parseInt(numberString[0])-2] + " " + num[parseInt(numberString[1])];
+    	}
+    }
+}
+
+
+
