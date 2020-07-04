@@ -72,7 +72,29 @@ function wordCounter(sentence){
 
 console.log("Word Count = " + wordCount);
 
+
+
 console.log("Answer to the Ques. No 4 ----");
 
 console.log("Fourth answer ----");
+
+let array2d = new Array(4);
+
+for(let i=0 ; i<array2d.length ; i++){
+	array2d[i] = new Array(4);
+}
+
+for(let i=0 ; i<4 ; i++){
+	for (let j=0 ; j<4 ;j++){
+		array2d[i][j] =  i*4 + j+1; 
+	}
+}
+
+let result="";
+for(let i=0 ; i<4 ; i++){
+	result += array2d[i].join(' ');
+	result += "\n";
+}
+
+console.log(result);
 
