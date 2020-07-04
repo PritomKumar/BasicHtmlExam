@@ -34,6 +34,9 @@ for (let i=0 ; i< array.length ; i++){
     }
 }
 
+console.log("\n");
+console.log("\n");
+
 console.log("Answer to the Ques. No 2 ----");
 
 console.log("Second answer ----");
@@ -59,6 +62,8 @@ for(let i=0 ;i<array1.length ; i++){
     countnumber=0;
 }
 
+console.log("\n");
+console.log("\n");
 console.log("Answer to the Ques. No 3 ----");
 
 console.log("Third answer ----");
@@ -73,7 +78,8 @@ function wordCounter(sentence){
 console.log("Word Count = " + wordCount);
 
 
-
+console.log("\n");
+console.log("\n");
 console.log("Answer to the Ques. No 4 ----");
 
 console.log("Fourth answer ----");
@@ -97,4 +103,43 @@ for(let i=0 ; i<4 ; i++){
 }
 
 console.log(result);
+
+
+console.log("\n");
+console.log("\n");
+console.log("Answer to the Ques. No 5 ----");
+
+console.log("Fifth answer ----");
+
+let diamondSize = 7;
+
+console.log("Diamond for size " + diamondSize + " --------");
+let result2 = createDiamond(diamondSize);
+
+console.log(result2);
+
+function createDiamond(size){
+
+	let result = "";
+	let printingSize = 2*(size-1) + 1;
+	for (let i=0 ;i<printingSize ;i++){
+		let spaceCount = Math.floor(printingSize/2) - i;
+
+		if(spaceCount<0){
+			spaceCount = -spaceCount;
+		}
+		
+		for(let j=0 ; j<spaceCount ;j++){
+			result += " ";
+		}
+
+		let starCount = 2*(Math.floor(printingSize/2) - spaceCount)+1;
+		for(let j=0 ; j<starCount ;j++){
+			result += "*";
+		}
+		result += "\n";
+	}
+
+	return result;
+}
 
