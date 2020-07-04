@@ -143,3 +143,60 @@ function createDiamond(size){
 	return result;
 }
 
+console.log("\n");
+console.log("\n");
+console.log("Answer to the Ques. No 6 ----");
+
+console.log("Sixth answer ----");
+
+
+function timeFormatConverter(time)
+{  
+	time = time.trim();
+	let formatDecider = time.split(' ');
+	let formattedTime = "";
+	if(formatDecider.length == 1){
+		let timeArray = time.split(":");
+	    let twelveHourAmPm = 'AM';
+
+	    if (timeArray[0] >= 12) {
+	        twelveHourAmPm = 'PM';
+	    }
+
+	    if (timeArray[0] > 12 && timeArray[0]!=0) {
+	        timeArray[0] = timeArray[0] - 12;
+	    }
+
+	    if(timeArray[0]==0) {
+	        timeArray[0] = 12;
+	    }
+
+	    formattedTime = timeArray[0] + ':' + timeArray[1] + ':' + timeArray[2] + ' ' + twelveHourAmPm;
+	}
+	else if(formatDecider.length == 2){
+		let timeArray = time.split(":");
+
+		if(formatDecider[1].toUpperCase() === "PM" ){
+			timeArray[0] = parseInt(timeArray[0]) + 12;
+		}
+	   
+	    if(timeArray[0]==12 && formatDecider[1].toUpperCase() === "AM" ) {
+	        timeArray[0] = 0;
+	    }
+	    if(timeArray[0]=24 && formatDecider[1].toUpperCase() === "PM" ) {
+	        timeArray[0] = 12;
+	    }
+
+	    formattedTime = timeArray[0] + ':' + timeArray[1] + ':' + timeArray[2];
+	}
+    
+
+    return formattedTime;
+}
+
+
+let time = timeFormatConverter("6:00:00");
+console.log(time); 
+
+time = timeFormatConverter("12:00:00 PM");
+console.log(time);  
