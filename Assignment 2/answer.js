@@ -59,5 +59,20 @@ for(let i=0 ;i<array1.length ; i++){
     countnumber=0;
 }
 
+console.log("Answer to the Ques. No 3 ----");
 
+console.log("Third answer ----");
+
+const sentence = 'This day will become the most epic adventure in the history of war criminals .';
+let wordCount = wordCounter(sentence);
+function wordCounter(sentence){
+	let wordsArray = sentence.split(' ');
+	return wordsArray.length;
+}
+
+console.log("Word Count = " + wordCount);
+
+console.log("Answer to the Ques. No 4 ----");
+
+console.log("Fourth answer ----");
 
